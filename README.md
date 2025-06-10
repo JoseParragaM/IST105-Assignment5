@@ -1,0 +1,2 @@
+# Purpose of the project
+This project is a Django web application that lets users enter a number and a piece of text; it then determines if the number is even or odd (computing its square root or cube), converts the text to binary while counting its vowels, and runs a simulated “treasure hunt” number-guessing game with up to five attempts.
