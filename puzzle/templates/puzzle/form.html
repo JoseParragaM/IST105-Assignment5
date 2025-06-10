@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IST105-Assignment5</title>
+    <style>
+        body {
+            background: #e0f0f8;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <p style="margin-bottom: 0px; font-weight: bold;">Welcome to the Interactive Treasure Hunt!</p>
+    <p style="margin-top: 0px; font-weight: bold;">Enter your details to solve the puzzle and find the treasure.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label>Number (e.g., birth year): {{ form.number }}</label><br>
+        <label>Text (e.g., name or secret word): {{ form.text }}</label><br><br>
+        <button type="submit">Solve the Puzzle</button>
+    </form>
+
+    {% if first_puzzle %}
+    <div class="results">
+        <p style="font-weight: bold; margin-bottom: 0px;">Number Puzzle:</p>
+        <ul style="margin-top: 0px;">
+            {% for line in first_puzzle %}
+            <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+
+        <p style="font-weight: bold; margin-bottom: 0px;">Text Puzzle:</p>
+        <ul style="margin-top: 0px;">
+            {% for line in second_puzzle %}
+            <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+
+        <p style="font-weight: bold; margin-bottom: 0px;">Treasure Hunt:</p>
+        <ul style="margin-top: 0px;">
+            {% for line in third_puzzle %}
+            <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</body>
+
+</html>
